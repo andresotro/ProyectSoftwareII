@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public class Ruta {
     private ArrayList<Polyline> calles;
-    private int idConductor;
+    private String correoConductor;
     private int numeroPuestos;
     private String placaCarro;
     private String puntoSalida;
@@ -22,12 +22,12 @@ public class Ruta {
     private String identificacion;
     private Date hora;
     private Date fecha;
-    private long sesion;
-    private long precio;
+    private int sesion;
+    private float precio;
 
-    public Ruta(ArrayList<Polyline> calles, int idConductor, int numeroPuestos, String placaCarro, String puntoSalida, String puntoDestino, String identificacion, Date hora, Date fecha, long sesion, long precio) {
+    public Ruta(ArrayList<Polyline> calles, String correoConductor, int numeroPuestos, String placaCarro, String puntoSalida, String puntoDestino, String identificacion, Date hora, Date fecha, int sesion, float precio) {
         this.calles = calles;
-        this.idConductor = idConductor;
+        this.correoConductor = correoConductor;
         this.numeroPuestos = numeroPuestos;
         this.placaCarro = placaCarro;
         this.puntoSalida = puntoSalida;
@@ -49,12 +49,12 @@ public class Ruta {
         this.calles = calles;
     }
 
-    public int getIdConductor() {
-        return idConductor;
+    public String getCorreoConductor() {
+        return correoConductor;
     }
 
-    public void setIdConductor(int idConductor) {
-        this.idConductor = idConductor;
+    public void setCorreoConductor(String correoConductor) {
+        this.correoConductor = correoConductor;
     }
 
     public int getNumeroPuestos() {
@@ -105,11 +105,11 @@ public class Ruta {
         this.hora = hora;
     }
 
-    public long getSesion() {
+    public int getSesion() {
         return sesion;
     }
 
-    public void setSesion(long sesion) {
+    public void setSesion(int sesion) {
         this.sesion = sesion;
     }
 
@@ -121,11 +121,11 @@ public class Ruta {
         this.fecha = fecha;
     }
 
-    public long getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(long precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
     

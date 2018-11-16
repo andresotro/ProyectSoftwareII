@@ -16,7 +16,7 @@
   <version>1.0-SNAPSHOT</version>
 
   <groupId>com.example.echo</groupId>
-  <artifactId>echo</artifactId>
+  <artifactId>Proxy</artifactId>
 
   <!--
     The parent pom defines common style checks and testing strategies for our samples.

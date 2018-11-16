@@ -10,19 +10,19 @@ package com.example.echo;
  * @author Andrés
  */
 public class Conjunto {
-    private long sesion;
+    private int sesion;
     private String correo;
 
-    public Conjunto(long sesion, String correo) {
+    public Conjunto(int sesion, String correo) {
         this.sesion = sesion;
         this.correo = correo;
     }
 
-    public long getSesion() {
+    public int getSesion() {
         return sesion;
     }
 
-    public void setSesion(long sesion) {
+    public void setSesion(int sesion) {
         this.sesion = sesion;
     }
 

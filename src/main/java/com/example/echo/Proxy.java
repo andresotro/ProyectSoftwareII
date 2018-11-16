@@ -1,24 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example.echo;
+
+import com.google.api.server.spi.auth.EspAuthenticator;
+import com.google.api.server.spi.auth.common.User;
+import com.google.api.server.spi.config.AnnotationBoolean;
+import com.google.api.server.spi.config.Api;
+import com.google.api.server.spi.config.ApiIssuer;
+import com.google.api.server.spi.config.ApiIssuerAudience;
+import com.google.api.server.spi.config.ApiMethod;
+import com.google.api.server.spi.config.ApiNamespace;
+import com.google.api.server.spi.config.Named;
+import com.google.api.server.spi.config.Nullable;
+import com.google.api.server.spi.response.UnauthorizedException;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.google.api.server.spi.config.Api;
-import com.google.api.server.spi.config.ApiIssuer;
-import com.google.api.server.spi.config.ApiMethod;
-import com.google.api.server.spi.config.ApiNamespace;
-
-/**
- * The Echo API which Endpoints will be exposing.
- */
-// [START echo_api_annotation]
 @Api(
-    name = "Proxy",
+    name = "proxy",
     version = "v1",
     namespace =
     @ApiNamespace(
@@ -26,11 +24,10 @@ import com.google.api.server.spi.config.ApiNamespace;
         ownerName = "echo.example.com",
         packagePath = ""
     ),
-    // [START_EXCLUDE]
     issuers = {
         @ApiIssuer(
             name = "firebase",
-            issuer = "https://securetoken.google.com/YOUR-PROJECT-ID",
+            issuer = "https://securetoken.google.com/proyectsoftwareii",
             jwksUri =
                 "https://www.googleapis.com/service_accounts/v1/metadata/x509/securetoken@system"
                     + ".gserviceaccount.com"
@@ -39,7 +36,7 @@ import com.google.api.server.spi.config.ApiNamespace;
 // [END_EXCLUDE]
 )
 // [END echo_api_annotation]
-public class Proxy implements IProxy{
+public class Proxy{
     
     private static Proxy unicaInstancia;
     private ArrayList<Usuario> listaUsuarios = new ArrayList<>();
@@ -51,36 +48,49 @@ public class Proxy implements IProxy{
         return unicaInstancia;
     }
     
- // [START echo_method]
-    @ApiMethod(name = "IniciarSesion")
-    @Override
-    public long iniciarSesion(String correo, String contraseña){
-        long devolver = 0;
+    // [START echo_api_key]
+    @ApiMethod(name = "iniciarsesion")
+    public Sesion iniciarSesion(@Named("correo") String correo, @Named("password") String password){
+        Sesion s = new Sesion();
+        s.setSesion(0);
         Usuario x = new Conductor();
-        x.setCorreo("Micasa");x.setNombre("Yo");x.setPassword("123");x.setTipoUsuario("Conductor");
+        x.setCorreo("Correo1");
+        x.setNombre("Yo");
+        x.setPassword("123");
+        x.setTipoUsuario("Conductor");
         listaUsuarios.add(x);
-        x.setCorreo("Empoin");x.setNombre("Isiempoin");x.setPassword("Nosequehacer");x.setTipoUsuario("Conductor");
-        listaUsuarios.add(x);
+        Usuario y = new Conductor();
+        y.setCorreo("Empoin");
+        y.setNombre("Nombre");
+        y.setPassword("1234");
+        y.setTipoUsuario("Conductor");
+        listaUsuarios.add(y);
         for(Usuario u : listaUsuarios){
-            if(u.getCorreo().equals(correo) && u.getPassword().equals(contraseña)){
-                Random rand = new Random(); // generate a random number
-                devolver = rand.nextInt(9999) + 1;
-                Facade f = Facade.getInstance();
-                f.guardarSesion(devolver, correo);
+        	s.setSesion(10);
+            if(u.getCorreo().equals(correo) && u.getPassword().equals(password)){
+              Random rand = new Random();
+              int z = (rand.nextInt(9999) + 1);
+              s.setSesion(z);
+              break;
             }
         }
-        return devolver;
+        return s;
     }
- // [END echo_method]
+    // [END echo_api_key]
     
-    public String verificarUsuario(String correo, String contraseña){
-        String devolver = "No";
+    
+    public tipoUsuario verificarUsuario(@Named("correo") String correo, @Named("password") String password){
+        tipoUsuario t = new tipoUsuario();
         for(Usuario u : listaUsuarios){
-            if(u.getCorreo().equals(correo) && u.getPassword().equals(contraseña)){
-                devolver = u.getTipoUsuario();
+            if(u.getCorreo().equals(correo) && u.getPassword().equals(password)){
+				t.setTipoUsuario(u.getTipoUsuario());
+				break;
+            }
+            else{
+            	t.setTipoUsuario("Nada");
             }
         }
-        return devolver;
+        return t;
     }
     
 }
