@@ -57,7 +57,7 @@ public class Proxy{
         for(Usuario u : listaUsuarios){
             if(u.getCorreo().equals(correo) && u.getPassword().equals(password)){
                 Devolver d = f.verificarSesion(correo);
-                if(d.getInfo().equals(0)){
+                if(d.getInfo().equals(Integer.toString(0))){
                     Random rand = new Random();
                     int z = (rand.nextInt(9999) + 1);
                     s.setSesion(z);
