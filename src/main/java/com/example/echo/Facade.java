@@ -6,14 +6,13 @@
 package com.example.echo;
 
 import java.util.ArrayList;
-import java.text.*;
 import java.util.Date;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiIssuer;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.config.Named;
-import java.sql.Time;
+import java.text.*;
 
 @Api(
     name = "facade",
@@ -50,23 +49,22 @@ public class Facade {
     }
     
     @ApiMethod(name = "RegistrarRuta")
-    public void registrarRuta(@Named("numeroPuestos") int numeroPuestos, @Named("placaCarro") String placaCarro, @Named("puntoSalida") String puntoSalida, @Named("puntoDestino") String puntoDestino, @Named("Identificacion") String identificacion, @Named("hora (HH:mm:ss)") String horaS, @Named("fecha (yyyy-MM-dd)") String fechaS, /*@Named("calles") ArrayList<Polyline> calles,*/ @Named("precio") float precio){
+    public void registrarRuta(@Named("numeroPuestos") int numeroPuestos, @Named("placaCarro") String placaCarro, @Named("puntoSalida") String puntoSalida, @Named("puntoDestino") String puntoDestino, @Named("Identificacion") String identificacion, @Named("hora") String horaS, @Named("fecha") String fechaS, /*@Named("calles") ArrayList<Polyline> calles,*/ @Named("precio") float precio){
     	String correo = "Prueba";
         SimpleDateFormat cosa = new SimpleDateFormat("yyyy-MM-dd");
         Date fecha = null;
         Date hora = null;
-     //   try {
-       //     fecha = cosa.parse(fechaS);
-  //      } catch (ParseException ex) {
-    //        ex.printStackTrace();
-      //  }
-        //SimpleDateFormat cosa2 = new SimpleDateFormat("HH:mm:ss");
-        //Date hora = null;
-        //try {
-        //    hora = cosa2.parse(horaS);
-        //} catch (ParseException ex) {
-        //    ex.printStackTrace();
-        //}
+        try {
+            fecha = cosa.parse(fechaS);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        SimpleDateFormat cosa2 = new SimpleDateFormat("HH:mm:ss");
+        try {
+            hora = cosa2.parse(horaS);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
     	ArrayList<Calle> calles = null;
         Ruta r = new Ruta(calles, correo, numeroPuestos, placaCarro, puntoSalida, puntoDestino, identificacion, hora, fecha, precio);
         rutas.add(r);
