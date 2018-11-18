@@ -92,12 +92,13 @@ public class Proxy{
     public void rellenarUsuarios(){
         Usuario x = new Conductor();
         Usuario y = new Conductor();
+        Usuario z = new Conductor();
         x.setCorreo("Correo1");x.setNombre("Yo");x.setPassword("123");x.setTipoUsuario("Conductor");
         listaUsuarios.add(x);
         y.setCorreo("Empoin");y.setNombre("Nombre");y.setPassword("1234");y.setTipoUsuario("Conductor");
         listaUsuarios.add(y);
-        y.setCorreo("Prueba");y.setPassword("1234");y.setNombre("Namae");y.setTipoUsuario("Conductor");
-        listaUsuarios.add(y);
+        z.setCorreo("Prueba");z.setPassword("1234");z.setNombre("Namae");z.setTipoUsuario("Conductor");
+        listaUsuarios.add(z);
     }
     
 }

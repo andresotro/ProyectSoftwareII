@@ -115,6 +115,10 @@ public class Facade {
     
     @ApiMethod(name = "verificarSesion")
     public Devolver verificarSesion(@Named("correoConductor") String correo){
+        Conjunto x = new Conjunto(1235, "Prueba");
+        Conjunto y = new Conjunto(9786, "Empoin");
+        sesiones.add(x);
+        sesiones.add(y);
         int sesionb = 0;
         for(Conjunto c : sesiones){
             if(c.getCorreo().equals(correo)){
