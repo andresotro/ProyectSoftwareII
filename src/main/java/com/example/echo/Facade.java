@@ -49,7 +49,7 @@ public class Facade {
     }
     
     @ApiMethod(name = "RegistrarRuta")
-    public void registrarRuta(@Named("numeroPuestos") int numeroPuestos, @Named("placaCarro") String placaCarro, @Named("puntoSalida") String puntoSalida, @Named("puntoDestino") String puntoDestino, @Named("Identificacion") String identificacion, @Named("hora") String horaS, @Named("fecha") String fechaS, /*@Named("calles") ArrayList<Polyline> calles,*/ @Named("precio") float precio){
+    public void registrarRuta(@Named("numeroPuestos") int numeroPuestos, @Named("placaCarro") String placaCarro, @Named("puntoSalida") String puntoSalida, @Named("puntoDestino") String puntoDestino, @Named("Identificacion") String identificacion, @Named("hora") String horaS, @Named("fecha") String fechaS, @Named("calles") ArrayList<Calle> calles, @Named("precio") float precio){
     	String correo = "Prueba";
         SimpleDateFormat cosa = new SimpleDateFormat("yyyy-MM-dd");
         Date fecha = null;
@@ -65,7 +65,6 @@ public class Facade {
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
-    	ArrayList<Calle> calles = null;
         Ruta r = new Ruta(calles, correo, numeroPuestos, placaCarro, puntoSalida, puntoDestino, identificacion, hora, fecha, precio);
         rutas.add(r);
     }

@@ -37,7 +37,6 @@ import java.util.Random;
 )
 // [END echo_api_annotation]
 public class Proxy{
-    
     private static Proxy unicaInstancia;
     private ArrayList<Usuario> listaUsuarios = new ArrayList<>();
     Facade f = Facade.getInstance();
