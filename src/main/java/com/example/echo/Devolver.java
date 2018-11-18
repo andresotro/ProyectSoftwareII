@@ -5,22 +5,19 @@
  */
 package com.example.echo;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 /**
  *
  * @author Andrés
  */
 
 public class Devolver{
-	private String info;
-	
-	public Devolver(String info){
-		this.info = info;
-	}
-	
-	public String getInfo(){
-		return info;
-	}
+    private String info;
+
+    public Devolver(String info){
+        this.info = info;
+    }
+
+    public String getInfo(){
+        return info;
+    }
 }

@@ -40,6 +40,7 @@ public class Proxy{
     
     private static Proxy unicaInstancia;
     private ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+    Facade f = Facade.getInstance();
     
     public static Proxy reemplazarConstructora(){
         if(unicaInstancia == null){
@@ -50,14 +51,13 @@ public class Proxy{
     
     @ApiMethod(name = "iniciarsesion")
     public Sesion iniciarSesion(@Named("correo") String correo, @Named("password") String password){
-        Facade f = Facade.getInstance();
         Sesion s = new Sesion();
         s.setSesion(0);
         rellenarUsuarios();
         for(Usuario u : listaUsuarios){
             if(u.getCorreo().equals(correo) && u.getPassword().equals(password)){
                 Devolver d = f.verificarSesion(correo);
-                if(Integer.parseInt(d.getInfo()) == (0)){
+                if(d.getInfo().equals(0)){
                     Random rand = new Random();
                     int z = (rand.nextInt(9999) + 1);
                     s.setSesion(z);
