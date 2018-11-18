@@ -54,18 +54,19 @@ public class Facade {
     	String correo = "Prueba";
         SimpleDateFormat cosa = new SimpleDateFormat("yyyy-MM-dd");
         Date fecha = null;
-        try {
-            fecha = cosa.parse(fechaS);
-        } catch (ParseException ex) {
-            ex.printStackTrace();
-        }
-        SimpleDateFormat cosa2 = new SimpleDateFormat("HH:mm:ss");
         Date hora = null;
-        try {
-            hora = cosa2.parse(horaS);
-        } catch (ParseException ex) {
-            ex.printStackTrace();
-        }
+     //   try {
+       //     fecha = cosa.parse(fechaS);
+  //      } catch (ParseException ex) {
+    //        ex.printStackTrace();
+      //  }
+        //SimpleDateFormat cosa2 = new SimpleDateFormat("HH:mm:ss");
+        //Date hora = null;
+        //try {
+        //    hora = cosa2.parse(horaS);
+        //} catch (ParseException ex) {
+        //    ex.printStackTrace();
+        //}
     	ArrayList<Calle> calles = null;
         Ruta r = new Ruta(calles, correo, numeroPuestos, placaCarro, puntoSalida, puntoDestino, identificacion, hora, fecha, precio);
         rutas.add(r);
