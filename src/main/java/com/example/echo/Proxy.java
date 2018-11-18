@@ -48,30 +48,26 @@ public class Proxy{
         return unicaInstancia;
     }
     
-    // [START echo_api_key]
     @ApiMethod(name = "iniciarsesion")
     public Sesion iniciarSesion(@Named("correo") String correo, @Named("password") String password){
+        Facade f = Facade.getInstance();
         Sesion s = new Sesion();
         s.setSesion(0);
-        Usuario x = new Conductor();
-        x.setCorreo("Correo1");
-        x.setNombre("Yo");
-        x.setPassword("123");
-        x.setTipoUsuario("Conductor");
-        listaUsuarios.add(x);
-        Usuario y = new Conductor();
-        y.setCorreo("Empoin");
-        y.setNombre("Nombre");
-        y.setPassword("1234");
-        y.setTipoUsuario("Conductor");
-        listaUsuarios.add(y);
+        rellenarUsuarios();
         for(Usuario u : listaUsuarios){
-        	s.setSesion(10);
             if(u.getCorreo().equals(correo) && u.getPassword().equals(password)){
-              Random rand = new Random();
-              int z = (rand.nextInt(9999) + 1);
-              s.setSesion(z);
-              break;
+                Devolver d = f.verificarSesion(correo);
+                if(Integer.parseInt(d.getInfo()) == (0)){
+                    Random rand = new Random();
+                    int z = (rand.nextInt(9999) + 1);
+                    s.setSesion(z);
+                    f.guardarSesion(z, correo);
+                    break;
+                }
+                else{
+                    s.setSesion(Integer.parseInt(d.getInfo()));
+                    break;
+                }
             }
         }
         return s;
@@ -83,14 +79,25 @@ public class Proxy{
         tipoUsuario t = new tipoUsuario();
         for(Usuario u : listaUsuarios){
             if(u.getCorreo().equals(correo) && u.getPassword().equals(password)){
-				t.setTipoUsuario(u.getTipoUsuario());
-				break;
+		t.setTipoUsuario(u.getTipoUsuario());
+		break;
             }
             else{
             	t.setTipoUsuario("Nada");
             }
         }
         return t;
+    }
+    
+    public void rellenarUsuarios(){
+        Usuario x = new Conductor();
+        Usuario y = new Conductor();
+        x.setCorreo("Correo1");x.setNombre("Yo");x.setPassword("123");x.setTipoUsuario("Conductor");
+        listaUsuarios.add(x);
+        y.setCorreo("Empoin");y.setNombre("Nombre");y.setPassword("1234");y.setTipoUsuario("Conductor");
+        listaUsuarios.add(y);
+        y.setCorreo("Prueba");y.setPassword("1234");y.setNombre("Namae");y.setTipoUsuario("Conductor");
+        listaUsuarios.add(y);
     }
     
 }

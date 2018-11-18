@@ -12,12 +12,12 @@ import java.awt.Point;
  *
  * @author Andrés
  */
-public class Polyline {
+public class Calle {
     private Point[] puntos;
     private int width;
     private Color color;
 
-    public Polyline() {
+    public Calle() {
     
     }
 

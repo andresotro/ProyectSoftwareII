@@ -13,7 +13,7 @@ import java.util.Date;
  * @author Andrés
  */
 public class Ruta {
-    private ArrayList<Polyline> calles;
+    private ArrayList<Calle> calles;
     private String correoConductor;
     private int numeroPuestos;
     private String placaCarro;
@@ -22,10 +22,9 @@ public class Ruta {
     private String identificacion;
     private Date hora;
     private Date fecha;
-    private int sesion;
     private float precio;
 
-    public Ruta(ArrayList<Polyline> calles, String correoConductor, int numeroPuestos, String placaCarro, String puntoSalida, String puntoDestino, String identificacion, Date hora, Date fecha, int sesion, float precio) {
+    public Ruta(ArrayList<Calle> calles, String correoConductor, int numeroPuestos, String placaCarro, String puntoSalida, String puntoDestino, String identificacion, Date hora, Date fecha, float precio) {
         this.calles = calles;
         this.correoConductor = correoConductor;
         this.numeroPuestos = numeroPuestos;
@@ -35,17 +34,16 @@ public class Ruta {
         this.identificacion = identificacion;
         this.hora = hora;
         this.fecha = fecha;
-        this.sesion = sesion;
         this.precio = precio;
     }
     
     
 
-    public ArrayList<Polyline> getCalles() {
+    public ArrayList<Calle> getCalles() {
         return calles;
     }
 
-    public void setCalles(ArrayList<Polyline> calles) {
+    public void setCalles(ArrayList<Calle> calles) {
         this.calles = calles;
     }
 
@@ -103,14 +101,6 @@ public class Ruta {
 
     public void setHora(Date hora) {
         this.hora = hora;
-    }
-
-    public int getSesion() {
-        return sesion;
-    }
-
-    public void setSesion(int sesion) {
-        this.sesion = sesion;
     }
 
     public Date getFecha() {
