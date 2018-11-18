@@ -36,8 +36,8 @@ import java.text.*;
 )
 
 public class Facade {
-    private ArrayList<Ruta> rutas;
-    private ArrayList<Conjunto> sesiones;
+    private ArrayList<Ruta> rutas = new ArrayList<>();
+    private ArrayList<Conjunto> sesiones = new ArrayList<>();
     UsuarioFactory u;
     private static Facade instance;
     
