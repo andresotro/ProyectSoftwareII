@@ -3,7 +3,6 @@ com/example/echo/Sesion.class
 com/example/echo/IUsuario.class
 com/example/echo/tipoUsuario.class
 com/example/echo/Proxy.class
-com/example/echo/Polyline.class
 com/example/echo/UsuarioFactory.class
 com/example/echo/Ruta.class
 com/example/echo/Facade.class
@@ -12,4 +11,3 @@ com/example/echo/Devolver.class
 com/example/echo/IProxy.class
 com/example/echo/Conjunto.class
 com/example/echo/Pasajero.class
-com/example/echo/Echo.class
