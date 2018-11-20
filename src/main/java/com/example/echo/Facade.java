@@ -49,7 +49,7 @@ public class Facade {
     }
     
     @ApiMethod(name = "RegistrarRuta")
-    public void registrarRuta(@Named("numeroPuestos") int numeroPuestos, @Named("placaCarro") String placaCarro, @Named("puntoSalida") String puntoSalida, @Named("puntoDestino") String puntoDestino, @Named("Identificacion") String identificacion, @Named("hora") String horaS, @Named("fecha") String fechaS, @Named("precio") float precio){
+    public void registrarRuta(@Named("numeroPuestos") int numeroPuestos, @Named("placaCarro") String placaCarro, @Named("puntoSalida") String puntoSalida, @Named("puntoDestino") String puntoDestino, @Named("tipoRuta") String tipoRuta,@Named("Identificacion") String identificacion, @Named("hora") String horaS, @Named("fecha") String fechaS, @Named("precio") float precio){
         ArrayList<Calle> calles = null;
     	String correo = "Prueba";
         SimpleDateFormat cosa = new SimpleDateFormat("yyyy-MM-dd");
@@ -66,7 +66,7 @@ public class Facade {
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
-        Ruta r = new Ruta(calles, correo, numeroPuestos, placaCarro, puntoSalida, puntoDestino, identificacion, hora, fecha, precio);
+        Ruta r = new Ruta(calles, correo, numeroPuestos, placaCarro, puntoSalida, puntoDestino, identificacion, horaS, fecha, precio, tipoRuta);
         rutas.add(r);
     }
     
@@ -82,10 +82,10 @@ public class Facade {
     }
     
     @ApiMethod(name = "eliminarRuta")
-    public void eliminarRuta(@Named("correoConductor") String correo, @Named("hora") Date hora, @Named("fecha") Date fecha){
+    public void eliminarRuta(@Named("correoConductor") String correo, @Named("hora") String hora, @Named("fecha") Date fecha){
         for(Ruta r : rutas){
             if(r.getCorreoConductor().equals(correo)){
-                if(r.getFecha() == fecha && r.getHora() == hora){
+                if(r.getFecha() == fecha && r.getHora().equals(hora)){
                     rutas.remove(r);
                     break;
                 }
@@ -94,10 +94,10 @@ public class Facade {
     }
     
     @ApiMethod(name = "actualizarRuta")
-    public void actualizarRuta(@Named("correoConductor") String correo, @Named("horaBuscada") Date horaBuscada, @Named("fechaBuscada") Date fechaBuscada, @Named("numeroPuestos") int numeroPuestos, @Named("placaCarro") String placaCarro, @Named("nuevaHora") Date hora, @Named("nuevoPrecio") float precio){
+    public void actualizarRuta(@Named("correoConductor") String correo, @Named("horaBuscada") String horaBuscada, @Named("fechaBuscada") Date fechaBuscada, @Named("numeroPuestos") int numeroPuestos, @Named("placaCarro") String placaCarro, @Named("nuevaHora") String hora, @Named("nuevoPrecio") float precio){
         for(Ruta r : rutas){
             if(r.getCorreoConductor().equals(correo)){
-                if(r.getFecha() == fechaBuscada && r.getHora() == horaBuscada){
+                if(r.getFecha() == fechaBuscada && r.getHora().equals(horaBuscada)){
                     r.setNumeroPuestos(numeroPuestos);
                     r.setPlacaCarro(placaCarro);
                     r.setHora(hora);
