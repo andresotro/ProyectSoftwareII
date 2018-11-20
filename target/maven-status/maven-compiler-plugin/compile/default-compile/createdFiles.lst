@@ -10,4 +10,5 @@ com/example/echo/Conductor.class
 com/example/echo/Devolver.class
 com/example/echo/IProxy.class
 com/example/echo/Conjunto.class
+com/example/echo/Calle.class
 com/example/echo/Pasajero.class
