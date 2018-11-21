@@ -70,9 +70,14 @@ public class FacadeTest {
         String identificacion = "154698321";
         String horaS = "12:00:00";
         String fechaS = "2018-03-03";
+        ArrayList<Ruta> devolver = new ArrayList<>();
         float precio = 3500;
         Facade instance = new Facade();
-        instance.registrarRuta(correo, numeroPuestos, placaCarro, puntoSalida, puntoDestino, tipoRuta, identificacion, horaS, fechaS, precio);
+        instance.registrarRuta(correo, numeroPuestos, placaCarro, puntoSalida, puntoDestino, tipoRuta, identificacion, horaS, fechaS, precio);       
+        devolver = instance.listarRuta(correo);
+        String expResult = "Prueba";
+        String result = devolver.get(0).getCorreoConductor();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -104,17 +109,17 @@ public class FacadeTest {
     public void testEliminarRuta() {
         System.out.println("eliminarRuta");
         String correo = "Prueba";
-        String hora = "12:00:00";
-        SimpleDateFormat cosa = new SimpleDateFormat("yyyy-MM-dd");
-        Date fecha = null;
-        try {
-             fecha = cosa.parse("2018-03-03");
-        } catch (ParseException ex) {
-            Logger.getLogger(FacadeTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        ArrayList<Ruta> devolver = null;
         Facade instance = new Facade();
         instance.registrarRuta("Prueba", 5, "BPC-335", "54", "65", "", "123456", "12:00:00", "2018-03-03", 3500);
+        devolver = instance.listarRuta(correo);
+        Date fecha = devolver.get(0).getFecha();
+        String hora = devolver.get(0).getHora();
+        
         instance.eliminarRuta(correo, hora, fecha);
+        devolver = instance.listarRuta(correo);
+        int expResult = devolver.size();
+        assertEquals(expResult, 0);
         // TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
     }
