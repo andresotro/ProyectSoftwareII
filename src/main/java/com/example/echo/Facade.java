@@ -49,9 +49,8 @@ public class Facade {
     }
     
     @ApiMethod(name = "RegistrarRuta")
-    public void registrarRuta(@Named("numeroPuestos") int numeroPuestos, @Named("placaCarro") String placaCarro, @Named("puntoSalida") String puntoSalida, @Named("puntoDestino") String puntoDestino, @Named("tipoRuta") String tipoRuta,@Named("Identificacion") String identificacion, @Named("hora") String horaS, @Named("fecha") String fechaS, @Named("precio") float precio){
+    public void registrarRuta(@Named("correoConductor") String correo,@Named("numeroPuestos") int numeroPuestos, @Named("placaCarro") String placaCarro, @Named("puntoSalida") String puntoSalida, @Named("puntoDestino") String puntoDestino, @Named("tipoRuta") String tipoRuta,@Named("Identificacion") String identificacion, @Named("hora") String horaS, @Named("fecha") String fechaS, @Named("precio") float precio){
         ArrayList<Calle> calles = null;
-    	String correo = "Prueba";
         SimpleDateFormat cosa = new SimpleDateFormat("yyyy-MM-dd");
         Date fecha = null;
         Date hora = null;
