@@ -68,6 +68,23 @@ public class ProxyTest {
     }
 
 
+    /**
+     * Test of verificarUsuario method, of class Proxy.
+     */
+    @Test
+    public void testVerificarUsuario() {
+        System.out.println("verificarUsuario");
+        String correo = "Prueba";
+        String password = "1234";
+        Proxy instance = new Proxy();
+        instance.rellenarUsuarios();
+        tipoUsuario t = instance.verificarUsuario(correo, password);
+        String expResult = "Conductor";
+        String result = t.getTipoUsuario();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 
 
     
