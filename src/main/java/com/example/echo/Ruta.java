@@ -22,10 +22,10 @@ public class Ruta {
     private String identificacion;
     private String tipoRuta;
     private String hora;
-    private Date fecha;
+    private String fecha;
     private float precio;
 
-    public Ruta(ArrayList<Calle> calles, String correoConductor, int numeroPuestos, String placaCarro, String puntoSalida, String puntoDestino, String identificacion, String hora, Date fecha, float precio, String tipoRuta) {
+    public Ruta(ArrayList<Calle> calles, String correoConductor, int numeroPuestos, String placaCarro, String puntoSalida, String puntoDestino, String identificacion, String hora, String fecha, float precio, String tipoRuta) {
         this.calles = calles;
         this.correoConductor = correoConductor;
         this.numeroPuestos = numeroPuestos;
@@ -111,11 +111,11 @@ public class Ruta {
         this.hora = hora;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

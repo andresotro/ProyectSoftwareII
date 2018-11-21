@@ -65,7 +65,7 @@ public class Facade {
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
-        Ruta r = new Ruta(calles, correo, numeroPuestos, placaCarro, puntoSalida, puntoDestino, identificacion, horaS, fecha, precio, tipoRuta);
+        Ruta r = new Ruta(calles, correo, numeroPuestos, placaCarro, puntoSalida, puntoDestino, identificacion, horaS, fechaS, precio, tipoRuta);
         rutas.add(r);
     }
     
@@ -81,10 +81,10 @@ public class Facade {
     }
     
     @ApiMethod(name = "eliminarRuta")
-    public void eliminarRuta(@Named("correoConductor") String correo, @Named("hora") String hora, @Named("fecha") Date fecha){
+    public void eliminarRuta(@Named("correoConductor") String correo, @Named("hora") String hora, @Named("fecha") String fecha){
         for(Ruta r : rutas){
             if(r.getCorreoConductor().equals(correo)){
-                if(r.getFecha() == fecha && r.getHora().equals(hora)){
+                if(r.getFecha().equals(fecha) && r.getHora().equals(hora)){
                     rutas.remove(r);
                     break;
                 }
@@ -93,10 +93,10 @@ public class Facade {
     }
     
     @ApiMethod(name = "actualizarRuta")
-    public void actualizarRuta(@Named("correoConductor") String correo, @Named("horaBuscada") String horaBuscada, @Named("fechaBuscada") Date fechaBuscada, @Named("numeroPuestos") int numeroPuestos, @Named("placaCarro") String placaCarro, @Named("nuevaHora") String hora, @Named("nuevoPrecio") float precio){
+    public void actualizarRuta(@Named("correoConductor") String correo, @Named("horaBuscada") String horaBuscada, @Named("fechaBuscada") String fechaBuscada, @Named("numeroPuestos") int numeroPuestos, @Named("placaCarro") String placaCarro, @Named("nuevaHora") String hora, @Named("nuevoPrecio") float precio){
         for(Ruta r : rutas){
             if(r.getCorreoConductor().equals(correo)){
-                if(r.getFecha() == fechaBuscada && r.getHora().equals(horaBuscada)){
+                if(r.getFecha().equals(fechaBuscada) && r.getHora().equals(horaBuscada)){
                     r.setNumeroPuestos(numeroPuestos);
                     r.setPlacaCarro(placaCarro);
                     r.setHora(hora);
