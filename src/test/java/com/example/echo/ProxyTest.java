@@ -47,18 +47,6 @@ public class ProxyTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of reemplazarConstructora method, of class Proxy.
-     */
-    @Test
-    public void testReemplazarConstructora() {
-        System.out.println("reemplazarConstructora");
-        Proxy expResult = null;
-        Proxy result = Proxy.reemplazarConstructora();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of iniciarSesion method, of class Proxy.
@@ -66,42 +54,21 @@ public class ProxyTest {
     @Test
     public void testIniciarSesion() {
         System.out.println("iniciarSesion");
-        String correo = "";
-        String password = "";
-        Proxy instance = new Proxy();
-        Sesion expResult = null;
-        Sesion result = instance.iniciarSesion(correo, password);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of verificarUsuario method, of class Proxy.
-     */
-    @Test
-    public void testVerificarUsuario() {
-        System.out.println("verificarUsuario");
-        String correo = "";
-        String password = "";
-        Proxy instance = new Proxy();
-        tipoUsuario expResult = null;
-        tipoUsuario result = instance.verificarUsuario(correo, password);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of rellenarUsuarios method, of class Proxy.
-     */
-    @Test
-    public void testRellenarUsuarios() {
-        System.out.println("rellenarUsuarios");
+        
         Proxy instance = new Proxy();
         instance.rellenarUsuarios();
+        String correo = "Prueba";
+        String password = "1234";
+        int expResult = 1235;        
+        Sesion s = instance.iniciarSesion(correo, password);
+        int result = s.getSesion();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
+
+
+
+
     
 }
