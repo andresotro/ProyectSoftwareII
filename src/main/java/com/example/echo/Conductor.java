@@ -7,21 +7,12 @@ package com.example.echo;
 
 
 public class Conductor extends Usuario{
-    private String tipoUsuario;
-    
     public Conductor(){
         super();
-        tipoUsuario = "Conductor";
     }   
     
     @Override
     public String toString() {
         return "Correo: "+super.getCorreo()+" - Password: "+super.getPassword()+" - Tipo de Usuario: Conductor";
-    }
-
-    @Override
-    public String getTipoUsuario() {
-        return tipoUsuario;
-    }
-        
+    }   
 }

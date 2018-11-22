@@ -38,7 +38,7 @@ import java.text.*;
 public class Facade {
     private ArrayList<Ruta> rutas = new ArrayList<>();
     private ArrayList<Conjunto> sesiones = new ArrayList<>();
-    UsuarioFactory u;
+    private UsuarioFactory u;
     private static Facade instance;
     
     public static Facade getInstance() {

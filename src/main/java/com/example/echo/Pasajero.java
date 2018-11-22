@@ -10,20 +10,12 @@ package com.example.echo;
  * @author Andrés
  */
 public class Pasajero extends Usuario{
-    private String tipoUsuario;
-    
     public Pasajero(){
         super();
-        tipoUsuario = "Pasajero";
     }   
     
     @Override
     public String toString() {
         return "Correo: "+super.getCorreo()+" - Password: "+super.getPassword()+" - Tipo de Usuario: Conductor";
-    }
-
-    @Override
-    public String getTipoUsuario() {
-        return tipoUsuario;
     }
 }

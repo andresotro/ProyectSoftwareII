@@ -10,5 +10,5 @@ package com.example.echo;
  * @author Andrés
  */
 public interface IProxy {
-    public long iniciarSesion(String correo, String contraseña);
+    public Sesion iniciarSesion(String correo, String contraseña);
 }
