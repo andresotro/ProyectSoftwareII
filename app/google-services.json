@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1088858773555",
+    "firebase_url": "https://proyectsoftwareii.firebaseio.com",
+    "project_id": "proyectsoftwareii",
+    "storage_bucket": "proyectsoftwareii.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088858773555:android:77b43bd729ff71ed",
+        "android_client_info": {
+          "package_name": "com.example.alejo.rutas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088858773555-oashg5882ol7i88o8fhof09cmkjdptnq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKZCv7y4CuCLtZX-gduKps6xNa2QG2UmU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
